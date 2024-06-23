@@ -31,4 +31,10 @@ public class PropertyController {
         return ResponseEntity.ok(propertyService.saveProperty(property));
     }
 
+    //communicating with owner
+    @GetMapping("/owners/{owner-id}")
+    public ResponseEntity<List<Property>> getPropertyByOwner(@PathVariable("owner-id") Integer ownerId) {
+        return ResponseEntity.ok(propertyService.findAllPropertiesByOwner(ownerId));
+    }
+
 }

@@ -29,5 +29,10 @@ public class OwnerController {
     public ResponseEntity<Owner> createProperty(@RequestBody Owner owner) {
         return ResponseEntity.ok(ownerService.saveOwner(owner));
     }
+    @GetMapping("/with-properties/{owner-id}")
+    public ResponseEntity<FullOwnerResponse> getOwnerWithProperties(@PathVariable("owner-id") Integer ownerId) {
+        return ResponseEntity.ok(ownerService.findOwnerWithProperties(ownerId));
+    }
+
 
 }

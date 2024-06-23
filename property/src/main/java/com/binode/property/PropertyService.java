@@ -1,8 +1,7 @@
 package com.binode.property;
 
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,5 +23,9 @@ public class PropertyService {
 
     public Property getPropertyById(Integer id) {
         return propertyRepository.findById(id).orElse(null);
+    }
+
+    public List<Property> findAllPropertiesByOwner(Integer ownerId) {
+        return propertyRepository.findAllByOwnerId(ownerId);
     }
 }
